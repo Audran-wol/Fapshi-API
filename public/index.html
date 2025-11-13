@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sote Beauty Shop - Premium Skincare & Beauty Products</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <header class="main-header">
+            <div class="header-container">
+                <div class="logo">
+                    <h1>Sote</h1>
+                    <span class="tagline">Beauty Shop</span>
+                </div>
+                <nav class="main-nav">
+                    <a href="/" class="nav-link active">Shop</a>
+                    <a href="/admin" class="nav-link">Dashboard</a>
+                    <a href="/withdrawal" class="nav-link">Withdrawal</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="page-header">
+                <h2>Our Products</h2>
+                <p class="page-subtitle">Premium skincare and beauty essentials</p>
+            </div>
+
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="Sote/download (3).jpg" alt="Body Wash" class="product-image">
+                        <div class="product-badge">New</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Body Wash Collection</h3>
+                        <p class="product-description">Premium body wash with natural ingredients</p>
+                        <div class="product-footer">
+                            <span class="product-price">5,000 XAF</span>
+                            <button class="btn-add-to-cart" onclick="buyProduct('Body Wash Collection', 5000, 'Premium body wash with natural ingredients')">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="Sote/download (4).jpg" alt="Skincare Serum" class="product-image">
+                        <div class="product-badge sale">Sale</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Hydrating Serum</h3>
+                        <p class="product-description">Deep hydration for all skin types</p>
+                        <div class="product-footer">
+                            <span class="product-price">15,000 XAF</span>
+                            <button class="btn-add-to-cart" onclick="buyProduct('Hydrating Serum', 15000, 'Deep hydration for all skin types')">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="Sote/download (5).jpg" alt="Moisturizer" class="product-image">
+                        <div class="product-badge sale">Best Value</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Daily Moisturizer</h3>
+                        <p class="product-description">Lightweight daily moisturizing cream</p>
+                        <div class="product-footer">
+                            <span class="product-price">500 XAF</span>
+                            <button class="btn-add-to-cart" onclick="buyProduct('Daily Moisturizer', 500, 'Lightweight daily moisturizing cream - Perfect for testing')">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="Sote/download (6).jpg" alt="Face Cream" class="product-image">
+                        <div class="product-badge">Best Seller</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Anti-Aging Cream</h3>
+                        <p class="product-description">Advanced anti-aging formula</p>
+                        <div class="product-footer">
+                            <span class="product-price">25,000 XAF</span>
+                            <button class="btn-add-to-cart" onclick="buyProduct('Anti-Aging Cream', 25000, 'Advanced anti-aging formula')">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="Sote/download (7).jpg" alt="Cleanser" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Gentle Cleanser</h3>
+                        <p class="product-description">Soothing facial cleanser for sensitive skin</p>
+                        <div class="product-footer">
+                            <span class="product-price">8,500 XAF</span>
+                            <button class="btn-add-to-cart" onclick="buyProduct('Gentle Cleanser', 8500, 'Soothing facial cleanser for sensitive skin')">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="Sote/download (8).jpg" alt="Toner" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Refreshing Toner</h3>
+                        <p class="product-description">Balancing toner with botanical extracts</p>
+                        <div class="product-footer">
+                            <span class="product-price">12,000 XAF</span>
+                            <button class="btn-add-to-cart" onclick="buyProduct('Refreshing Toner', 12000, 'Balancing toner with botanical extracts')">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="Sote/Vaselina.jpg" alt="Vaseline" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Vaseline Care</h3>
+                        <p class="product-description">Intensive healing and protection</p>
+                        <div class="product-footer">
+                            <span class="product-price">7,500 XAF</span>
+                            <button class="btn-add-to-cart" onclick="buyProduct('Vaseline Care', 7500, 'Intensive healing and protection')">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <div class="product-image-wrapper">
+                        <img src="Sote/Body Wash, Shower Gel, or Bar Soap_ How to Know Which Is Right for You.jpg" alt="Body Care" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Body Care Set</h3>
+                        <p class="product-description">Complete body care collection</p>
+                        <div class="product-footer">
+                            <span class="product-price">18,000 XAF</span>
+                            <button class="btn-add-to-cart" onclick="buyProduct('Body Care Set', 18000, 'Complete body care collection')">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <p>© 2025 Sote Beauty Shop</p>
+            <p id="apiMode" style="font-size: 0.75rem; margin-top: 0.5rem; opacity: 0.8;"></p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+

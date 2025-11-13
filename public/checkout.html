@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Sote Beauty Shop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-wrapper">
+        <header class="main-header">
+            <div class="header-container">
+                <div class="logo">
+                    <h1>Sote</h1>
+                    <span class="tagline">Beauty Shop</span>
+                </div>
+                <nav class="main-nav">
+                    <a href="/" class="nav-link">Shop</a>
+                    <a href="/admin" class="nav-link">Dashboard</a>
+                    <a href="/withdrawal" class="nav-link">Withdrawal</a>
+                </nav>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="checkout-wrapper">
+                <div class="checkout-main">
+                    <div class="checkout-form">
+                        <h2>Checkout</h2>
+                        <div id="orderSummary" class="order-summary">
+                            <!-- Order details will be populated by JavaScript -->
+                        </div>
+
+                        <form id="checkoutForm" class="form">
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email" 
+                                    placeholder="your.email@example.com"
+                                    required
+                                    autocomplete="email"
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label>Payment Method</label>
+                                
+                                <!-- WhatsApp Payment Option (Old Method - Not Recommended) -->
+                                <div style="margin-bottom: 1.5rem; padding: 1rem; background: #f0f0f0; border-radius: var(--radius); border-left: 4px solid #ff9800;">
+                                    <div style="display: flex; align-items: center; gap: 1rem;">
+                                        <div style="flex: 1;">
+                                            <strong style="color: var(--text-primary); display: block; margin-bottom: 0.25rem;">💬 Pay via WhatsApp</strong>
+                                            <small style="color: var(--text-secondary); font-size: 0.75rem;">Old method: Contact us on WhatsApp to complete payment</small>
+                                        </div>
+                                        <button type="button" class="whatsapp-btn" onclick="payViaWhatsApp()">
+                                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                                            </svg>
+                                            WhatsApp
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Modern Payment Methods (Recommended) -->
+                                <div class="payment-methods">
+                                    <button type="button" class="payment-btn" id="mtnBtn" onclick="selectPaymentMethod('MTN')">
+                                        <img src="Sote/MTN.jpg" alt="MTN Mobile Money">
+                                        <span>MTN Mobile Money</span>
+                                    </button>
+                                    <button type="button" class="payment-btn" id="orangeBtn" onclick="selectPaymentMethod('Orange')">
+                                        <img src="Sote/Orange.jpg" alt="Orange Money">
+                                        <span>Orange Money</span>
+                                    </button>
+                                </div>
+                                <input type="hidden" id="paymentMethod" name="paymentMethod">
+                                <small class="form-hint" style="margin-top: 0.5rem; display: block; color: var(--text-secondary);">
+                                    ✅ <strong>Recommandé:</strong> Payez directement sur notre page sécurisée (Pas besoin de WhatsApp!)
+                                </small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="amount">Total Amount</label>
+                                <input 
+                                    type="number" 
+                                    id="amount" 
+                                    name="amount" 
+                                    min="100"
+                                    step="50"
+                                    required
+                                    readonly
+                                >
+                                <small class="form-hint">Minimum: 100 XAF (Fapshi requirement)</small>
+                            </div>
+
+                            <input type="hidden" id="productName" name="productName">
+                            <input type="hidden" id="description" name="description">
+
+                            <div id="errorMessage" class="error-message" style="display: none;"></div>
+                            <div id="successMessage" class="success-message" style="display: none;"></div>
+
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary" onclick="window.location.href='/'">
+                                    Continue Shopping
+                                </button>
+                                <button type="submit" class="btn btn-primary" id="submitBtn">
+                                    <span id="submitText">Complete Purchase</span>
+                                    <span id="submitLoader" class="loader" style="display: none;"></span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="main-footer">
+            <p>© 2025 Sote Beauty Shop. Sandbox Mode - Test Environment</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        function selectPaymentMethod(method) {
+            document.getElementById('paymentMethod').value = method;
+            document.querySelectorAll('.payment-btn').forEach(btn => btn.classList.remove('selected'));
+            if (method === 'MTN') {
+                document.getElementById('mtnBtn').classList.add('selected');
+            } else {
+                document.getElementById('orangeBtn').classList.add('selected');
+            }
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,61 @@
+{
+  "name": "fapshi-api",
+  "version": "1.0.0",
+  "description": "Complete integration guide and working example for Fapshi Payment API - Accept mobile money payments (MTN & Orange) and process payouts in Central Africa",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "fapshi",
+    "fapshi-api",
+    "fapshi-payment",
+    "fapshi-integration",
+    "payment",
+    "payment-gateway",
+    "mobile-money",
+    "mtn-mobile-money",
+    "orange-money",
+    "payout",
+    "withdrawal",
+    "payment-api",
+    "cameroon",
+    "central-africa",
+    "xaf",
+    "fcfa",
+    "payment-integration",
+    "nodejs",
+    "express",
+    "api",
+    "documentation",
+    "tutorial",
+    "example",
+    "sandbox",
+    "live",
+    "payment-collection",
+    "disbursement"
+  ],
+  "author": "Audran-wol",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Audran-wol/Fapshi-API.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Audran-wol/Fapshi-API/issues"
+  },
+  "homepage": "https://github.com/Audran-wol/Fapshi-API#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1",
+    "cors": "^2.8.5",
+    "uuid": "^9.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  }
+}
+
